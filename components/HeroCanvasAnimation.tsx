@@ -13,16 +13,22 @@ export default function HeroCanvasAnimation() {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const canUseTargetScroll = isMounted && imagesLoaded;
 
   // Scroll progress tracking
   const { scrollYProgress } = useScroll(
-    containerRef.current
+    canUseTargetScroll
       ? {
-          target: containerRef.current,
+          target: containerRef,
           offset: ['start start', 'end start']
         }
-      : {}
+      : undefined
   );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Smooth spring animation for buttery scroll
   const smoothProgress = useSpring(scrollYProgress, {
@@ -208,7 +214,7 @@ export default function HeroCanvasAnimation() {
               Bold Taste, Smooth Feel
             </h2>
             <p className="text-lg md:text-xl text-amber-100/70 font-['Inter'] drop-shadow-md">
-              Strong flavour and smooth finish you'll love
+              Strong flavour and smooth finish you&apos;ll love
             </p>
           </motion.div>
           

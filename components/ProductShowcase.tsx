@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import ProductCard from './ProductCard';
 import { coffeeProducts } from '@/data/products';
 
@@ -14,16 +15,20 @@ export default function ProductShowcase() {
         className="relative overflow-hidden rounded-[2rem] h-64 mb-16"
       >
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <img
+          <Image
             src="/coffee beans.jpeg"
             alt="Coffee beans background"
+            fill
+            sizes="100vw"
             className="w-full h-full object-cover opacity-25 blur-[4px]"
           />
         </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#3D2418]/60 via-[#4D3428]/55 to-[#3D2418]/60" />
-        <img
+        <Image
           src="/coffee/splash-banner.jpg"
           alt="Coffee Splash"
+          fill
+          sizes="100vw"
           className="absolute inset-0 z-10 w-full h-full object-cover mix-blend-overlay opacity-60"
         />
       </motion.div>

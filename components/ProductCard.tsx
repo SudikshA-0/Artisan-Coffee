@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { CoffeeProduct } from '@/data/products';
 
 interface ProductCardProps {
@@ -39,11 +40,12 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       </div>
       
       {/* Coffee Image */}
-      <div className="w-full h-56 bg-[#2D1810] rounded-xl mb-5 overflow-hidden">
-        {/* Using standard img to prevent unoptimized Next.js image warnings since export is used */}
-        <img
+      <div className="relative w-full h-56 bg-[#2D1810] rounded-xl mb-5 overflow-hidden">
+        <Image
           src={imageSrc}
           alt={imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
         />
       </div>

@@ -10,11 +10,20 @@ export default function FeatureSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [frames, setFrames] = useState<HTMLImageElement[]>([]);
   const [framesLoaded, setFramesLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
+  const { scrollYProgress } = useScroll(
+    isMounted
+      ? {
+          target: sectionRef,
+          offset: ['start end', 'end start'],
+        }
+      : undefined
+  );
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const smoothProgress = useSpring(scrollYProgress, {
     stiffness: 120,
