@@ -16,7 +16,7 @@ export default function ProductShowcase() {
       >
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
-            src="/coffee beans.jpeg"
+            src="/coffee-beans.jpeg"
             alt="Coffee beans background"
             fill
             sizes="100vw"
@@ -25,7 +25,7 @@ export default function ProductShowcase() {
         </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#3D2418]/60 via-[#4D3428]/55 to-[#3D2418]/60" />
         <Image
-          src="/coffee/splash-banner.jpg"
+          src="/mocha.jpeg"
           alt="Coffee Splash"
           fill
           sizes="100vw"

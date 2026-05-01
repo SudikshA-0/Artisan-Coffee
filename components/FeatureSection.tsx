@@ -5,8 +5,7 @@ import { features } from '@/data/products';
 
 export default function FeatureSection() {
   const TOTAL_FRAMES = 200;
-  const BASE_PATH = process.env.NODE_ENV === 'production' ? '/Artisan-Coffee' : '';
-  const FRAME_PATH = `${BASE_PATH}/Coffee cup-middle`;
+  const FRAME_PATH = '/Coffee cup-middle';
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [frames, setFrames] = useState<HTMLImageElement[]>([]);

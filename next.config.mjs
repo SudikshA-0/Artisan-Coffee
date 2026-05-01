@@ -1,12 +1,9 @@
-const isProd = process.env.NODE_ENV === "production";
+const isGH = process.env.GITHUB_PAGES === "true";
 
-const nextConfig = {
-  output: "export",
-  basePath: isProd ? "/Artisan-Coffee" : "",
-  assetPrefix: isProd ? "/Artisan-Coffee/" : "",
+export default {
+  basePath: isGH ? "/Artisan-Coffee" : "",
+  assetPrefix: isGH ? "/Artisan-Coffee/" : "",
   images: {
     unoptimized: true
   }
 };
-
-export default nextConfig;
