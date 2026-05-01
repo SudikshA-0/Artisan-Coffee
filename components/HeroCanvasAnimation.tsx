@@ -3,7 +3,8 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, useVelocity } from 'framer-motion';
 
 const TOTAL_FRAMES = 240; // Adjust based on your frame count
-const FRAME_PATH = '/coffee-frames';  // Folder containing frame_0.webp to frame_119.webp
+const BASE_PATH = process.env.NODE_ENV === 'production' ? '/Artisan-Coffee' : '';
+const FRAME_PATH = `${BASE_PATH}/coffee-frames`; // Folder containing frame images
 // Fit mode: show whole frame (no cropping)
 const FIT_MODE: 'contain' | 'cover' = 'contain';
 
